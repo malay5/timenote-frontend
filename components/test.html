@@ -1,0 +1,37 @@
+{dateList.map((date, index1) => (
+    <div className="flex flex-col h-full" key={index1}>
+      <div
+        className={`h-8 border-r-[1px] border-b-[1px]  flex justify-center items-center w-20 ${
+          index1 === 0
+            ? "border-t-2 border-t-purple-600"
+            : "border-t-0"
+        } text-xs text-slate-500`}
+      >
+        {getDayName(date.toString())}, {date.getDate()}
+      </div>
+
+      {freeTime.map((time, index2) => (
+        <Dialog key={index2}>
+          <DialogTrigger
+            className={`flex-1 justify-end items-start flex ${
+              index1 === 6 ? "border-r-[0px]" : "border-r-[1px]"
+            } 
+${index2 == freeTime.length - 1 ? "border-b-[0px]" : "border-b-[0px]"} 
+${index2 != 0 ? "border-t-[1px]" : "border-t-0"}  cursor-pointer `}
+          />
+          <DialogContent
+            className={"lg:max-w-screen-lg max-h-screen"}
+          >
+            <DialogTitle>Enter your contact info</DialogTitle>
+            <DialogDescription>
+              Enter your info to schedule a meeting
+            </DialogDescription>
+
+            <BookPop />
+          </DialogContent>
+        </Dialog>
+      ))}
+    </div>
+  ))}
+
+
